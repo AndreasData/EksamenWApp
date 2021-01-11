@@ -17,16 +17,16 @@ namespace EksamenWApp.Controllers
         private DatabaseContext db = new DatabaseContext();
 
         // GET: api/Request
-        public IQueryable<Request> GetRequests()
+        public IQueryable<RequestDB> GetRequests()
         {
             return db.Requests;
         }
 
         // GET: api/Request/5
-        [ResponseType(typeof(Request))]
+        [ResponseType(typeof(RequestDB))]
         public IHttpActionResult GetRequest(int id)
         {
-            Request request = db.Requests.Find(id);
+            RequestDB request = db.Requests.Find(id);
             if (request == null)
             {
                 return NotFound();
@@ -37,7 +37,7 @@ namespace EksamenWApp.Controllers
 
         // PUT: api/Request/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutRequest(int id, Request request)
+        public IHttpActionResult PutRequest(int id, RequestDB request)
         {
             if (!ModelState.IsValid)
             {
@@ -71,8 +71,8 @@ namespace EksamenWApp.Controllers
         }
 
         // POST: api/Request
-        [ResponseType(typeof(Request))]
-        public IHttpActionResult PostRequest(Request request)
+        [ResponseType(typeof(RequestDB))]
+        public IHttpActionResult PostRequest(RequestDB request)
         {
             if (!ModelState.IsValid)
             {
@@ -86,10 +86,10 @@ namespace EksamenWApp.Controllers
         }
 
         // DELETE: api/Request/5
-        [ResponseType(typeof(Request))]
+        [ResponseType(typeof(RequestDB))]
         public IHttpActionResult DeleteRequest(int id)
         {
-            Request request = db.Requests.Find(id);
+            RequestDB request = db.Requests.Find(id);
             if (request == null)
             {
                 return NotFound();
